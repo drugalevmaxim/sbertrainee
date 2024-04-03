@@ -10,10 +10,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        List<String> modes = Arrays.asList("read","sortname", "sortdistrict");
+        List<String> modes = Arrays.asList("read","sortname", "sortdistrict", "mostpopulated");
 
         if (args.length < 2 || !modes.contains(args[1].toLowerCase())) {
-            System.out.println("Usage: java <filename> read|sortName|sortDistrict");
+            System.out.println("Usage: java <filename> read|sortName|sortDistrict|mostPopulated");
             return;
         }
 
@@ -42,6 +42,11 @@ public class Main {
                     System.out.println(cities);
                     break;
                 }
+                case "mostpopulated": {
+                    City mostPopulated = cities.getMostPopulated();
+                    System.out.printf("[%d] = %d", cities.indexOf(mostPopulated), mostPopulated.getPopulation());
+                }
+
             }
 
         } catch (FileNotFoundException e) {

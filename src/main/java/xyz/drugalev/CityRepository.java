@@ -17,6 +17,17 @@ public class CityRepository {
     public void sortByDistrict() {
         cities.sort(Comparator.comparing(City::getNameWithDistrict));
     }
+    public City getMostPopulated() {
+        City mostPopulated = cities.get(0);
+        for (City city : cities) {
+            if (city.getPopulation() > mostPopulated.getPopulation())
+                mostPopulated = city;
+        }
+        return mostPopulated;
+    }
+    public int indexOf(City city) {
+        return cities.indexOf(city);
+    }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();

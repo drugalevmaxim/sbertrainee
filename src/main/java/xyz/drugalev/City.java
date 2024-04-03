@@ -15,6 +15,9 @@ public class City {
         this.foundation = foundation;
     }
 
+    public int getPopulation() {
+        return population;
+    }
     public String getName() {
         return name;
     }
