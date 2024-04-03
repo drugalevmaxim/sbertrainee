@@ -21,6 +21,9 @@ public class City {
     public String getName() {
         return name;
     }
+    public String getRegion() {
+        return region;
+    }
     public String getNameWithDistrict() {
         return district + ", " + name;
     }

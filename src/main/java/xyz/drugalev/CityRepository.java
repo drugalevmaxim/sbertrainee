@@ -1,6 +1,7 @@
 package xyz.drugalev;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CityRepository {
     private final List<City> cities;
@@ -28,7 +29,9 @@ public class CityRepository {
     public int indexOf(City city) {
         return cities.indexOf(city);
     }
-
+    public Map<String, Long> citiesInEachRegion() {
+        return cities.stream().collect(Collectors.groupingBy(City::getRegion, Collectors.counting()));
+    }
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (City city : cities) {
