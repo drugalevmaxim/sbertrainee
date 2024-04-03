@@ -15,6 +15,13 @@ public class City {
         this.foundation = foundation;
     }
 
+    public String getName() {
+        return name;
+    }
+    public String getNameWithDistrict() {
+        return district + ", " + name;
+    }
+
     public String toString() {
         return String.format("City{name='%s', region='%s', district='%s', population=%d, foundation='%s'}"
                 , name, region, district, population, foundation);

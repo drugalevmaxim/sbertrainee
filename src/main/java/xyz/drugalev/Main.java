@@ -1,5 +1,6 @@
 package xyz.drugalev;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -9,10 +10,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        List<String> modes = Arrays.asList("read");
+        List<String> modes = Arrays.asList("read","sortname", "sortdistrict");
 
         if (args.length < 2 || !modes.contains(args[1].toLowerCase())) {
-            System.out.println("Usage: java <filename> read");
+            System.out.println("Usage: java <filename> read|sortName|sortDistrict");
             return;
         }
 
@@ -28,6 +29,16 @@ public class Main {
 
             switch (args[1].toLowerCase()) {
                 case "read": {
+                    System.out.println(cities);
+                    break;
+                }
+                case "sortname": {
+                    cities.sortByName();
+                    System.out.println(cities);
+                    break;
+                }
+                case "sortdistrict": {
+                    cities.sortByDistrict();
                     System.out.println(cities);
                     break;
                 }
